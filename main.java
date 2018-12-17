@@ -29,12 +29,28 @@ public class main {
 
 
         int[][] mass1 = new int[][] {
-                {3,5,7},
-                {8,9,1},
-                {3,4,5}
+                {3,5,7,5,7},
+                {8,9,1,4,8},
+                {2,7,4,7,8},
+                {2,3,6,5,4},
+                {3,4,5,9,3}
         };
         System.out.println("Первая матрица: ");
         Matrix.printTheMatrix(mass1);
+
+//        System.out.println("Exponential matrix :");
+//        Matrix.printTheMatrix(Matrix.exponentialMatrix(mass1, 1));
+
+
+//        System.out.println("Exponential matrix 2 : ");
+//        Matrix.exponentMatrix(mass1, 2);
+
+//        System.out.println("Транспонированная матрица: ");
+//        Matrix.transposeMatrix(mass1);
+
+
+//        System.out.println("Единицы по главной диагонали: ");
+//        Matrix.printTheMatrix(Matrix.kakaiatoFigneaSDiagonaliami(mass1));
 
 //        int[][] mass2 = new int[][] {
 //                {2,4,9},
@@ -43,9 +59,6 @@ public class main {
 //        };
 //        System.out.println("Вторая матрица: ");
 //        Matrix.printTheMatrix(mass2);
-
-//        System.out.println("Exponential matrix :");
-//        Matrix.printTheMatrix(Matrix.exponentialMatrix(mass1, 1));
 
 //        System.out.println("Sum two matrix: ");
 //        Matrix.printTheMatrix(Matrix.sumMatrix(mass1, mass2));

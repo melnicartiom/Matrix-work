@@ -117,17 +117,81 @@ public class Matrix {
         return resultM;
     }
 
-//    public static int[][] exponentialMatrix (int[][] mtx, int num){
-//        int[][] resultMtx = new int[mtx.length][mtx[0].length];
+    public static int[][] exponentialMatrix (int[][] mtx, int num){
+        int[][] resultMtx = new int[mtx.length][mtx[0].length];
+        for (int i = 0; i < mtx.length; i++) {
+            for (int j = 0; j < mtx[0].length; j++) {
+                for (int k = num; k > 1; k--) {
+                    resultMtx[i][j] += mtx[i][j] * mtx[i][j];
+                }
+            }
+        }
+        return resultMtx;
+    }
+
+//    public static boolean exponentMatrix (int [][] mtx, int num){
 //        for (int i = 0; i < mtx.length; i++) {
-//            for (int j = 0; j < mtx[0].length; j++) {
-//                for (int k = num; k > 0; k--) {
-//                    resultMtx[i][j] += mtx[i][j] * mtx[i][j];
-//                }
+//            for (int j = 0; j < mtx[i].length; j++) {
+//                mtx[i][j] = mtx[i][j] * mtx[i][j];
 //            }
 //        }
-//        return resultMtx;
+//        printTheMatrix(mtx);
+//        return true;
 //    }
 
+//    public static int[][] kakaiatoFigneaSDiagonaliami (int [][] mtx){
+//        if (mtx.length != mtx[0].length){
+//            System.out.println("С данной матрицей невозможно выполнить эту операцию, так как она не квадратная :");
+//            return mtx;
+//        }
+//
+//        for (int i = 0; i < mtx.length; i++) {
+//            for (int j = i; j < i + 1; j++) {
+//                mtx[i][j] = 1;
+//            }
+//        }
+//
+//        for (int i = 0; i < mtx.length; i++) {
+//            for (int j = mtx[i].length - 1; j > mtx[i].length - i; j--) {
+//                mtx[i][j] = 2;
+//            }
+//        }
+//        return mtx;
+//    }
 
-}
+    public static boolean transposeMatrix (int[][] mtx){
+
+        if (mtx.length == mtx[0].length) {
+            int[][] transM = new int[mtx.length][mtx[0].length];
+            for (int i = 0; i < mtx.length; i++) {
+                for (int j = 0; j < transM.length; j++) {
+                    transM[j][i] = mtx[i][j];
+                }
+            }
+            printTheMatrix(transM);
+        }
+
+        if (mtx.length > mtx[0].length){
+            int[][] transM = new int[mtx[0].length][mtx.length];
+            for (int i = 0; i < mtx[i].length; i++) {
+                for (int j = 0; j < mtx.length; j++) {
+                    transM[i][j] = mtx[j][i];
+                }
+            }
+            printTheMatrix(transM);
+        }
+
+        if (mtx.length < mtx[0].length){
+            int[][] transM = new int[mtx[0].length][mtx.length];
+            for (int i = 0; i < mtx.length; i++) {
+                for (int j = 0; j < mtx[i].length; j++) {
+                    transM[j][i] = mtx[i][j];
+                }
+            }
+            printTheMatrix(transM);
+        }
+        return true;
+    }
+
+
+    }
