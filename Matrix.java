@@ -147,8 +147,17 @@ public class Matrix {
                 if (j == mtx.length - 1 - i){
                     mtx[i][j] = 2;
                 }
-                if ( (i + 1) == (mtx.length - 2 - j) ){
+                if (j > i & mtx.length - 1 - i > j){
                     mtx[i][j] = 3;
+                }
+                if ( j > i & mtx.length - 1 - i < j ){
+                    mtx[i][j] = 4;
+                }
+                if (j < i & mtx.length - 1 - i < j){
+                    mtx[i][j] = 5;
+                }
+                if (j < i & mtx.length - 1 - i > j){
+                    mtx[i][j] = 6;
                 }
             }
         }
