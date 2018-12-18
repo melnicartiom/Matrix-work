@@ -121,45 +121,51 @@ public class Matrix {
         int[][] resultMtx = new int[mtx.length][mtx[0].length];
         for (int i = 0; i < mtx.length; i++) {
             for (int j = 0; j < mtx[0].length; j++) {
-                for (int k = num; k > 1; k--) {
-                    resultMtx[i][j] += mtx[i][j] * mtx[i][j];
+                resultMtx[i][j] = 1;
+                for (int k = num; k > 0; k--) {
+                    resultMtx[i][j] *= mtx[i][j];
                 }
             }
         }
         return resultMtx;
     }
 
-//    public static boolean exponentMatrix (int [][] mtx, int num){
+
+    public static int[][] kakaiatoFigneaSDiagonaliami (int [][] mtx){
+        if (mtx.length != mtx[0].length){
+            System.out.println("С данной матрицей невозможно выполнить эту операцию, так как она не квадратная :");
+            return mtx;
+        }
+
+        mtx = new int[10][10];
+
 //        for (int i = 0; i < mtx.length; i++) {
 //            for (int j = 0; j < mtx[i].length; j++) {
-//                mtx[i][j] = mtx[i][j] * mtx[i][j];
+//                if (i == j){
+//                    mtx[i][j] = 1;
+//                }
+//                if (j == mtx.length - 1 - i){
+//                    mtx[i][j] = 2;
+//                }
 //            }
 //        }
-//        printTheMatrix(mtx);
-//        return true;
-//    }
 
-//    public static int[][] kakaiatoFigneaSDiagonaliami (int [][] mtx){
-//        if (mtx.length != mtx[0].length){
-//            System.out.println("С данной матрицей невозможно выполнить эту операцию, так как она не квадратная :");
-//            return mtx;
-//        }
-//
-//        for (int i = 0; i < mtx.length; i++) {
-//            for (int j = i; j < i + 1; j++) {
-//                mtx[i][j] = 1;
-//            }
-//        }
-//
-//        for (int i = 0; i < mtx.length; i++) {
-//            for (int j = mtx[i].length - 1; j > mtx[i].length - i; j--) {
-//                mtx[i][j] = 2;
-//            }
-//        }
-//        return mtx;
-//    }
 
-    public static boolean transposeMatrix (int[][] mtx){
+        for (int i = 0; i < mtx.length; i++) {
+            for (int j = i; j < i + 1; j++) {
+                mtx[i][j] = 1;
+            }
+        }
+
+        int num = mtx[0].length - 1;
+        for (int i = 0; i < mtx.length; i++) {
+            mtx[i][num - i] = 2;
+            }
+
+       return mtx;
+    }
+
+    public static boolean transposeMatrixByMainDiogonal (int[][] mtx){
 
         if (mtx.length == mtx[0].length) {
             int[][] transM = new int[mtx.length][mtx[0].length];
@@ -193,5 +199,48 @@ public class Matrix {
         return true;
     }
 
+    //сделать транспонирование по побочной диагонали
+    public static boolean transposeMatrixBySecondaryDiogonal (int [][] mtx) {
+
+        if (mtx.length == mtx[0].length) {
+            int[][] transM = new int[mtx.length][mtx.length];
+            int columLen = mtx.length - 1;
+            int elem = 0;
+            for (int i = mtx.length - 1; i >= 0 ; i--) {
+                for (int j = mtx[i].length - 1; j >= 0; j--) {
+                    transM[columLen - j][elem] = mtx[i][j];
+                }
+                elem++;
+            }
+            printTheMatrix(transM);
+        }
+
+        if (mtx.length > mtx[0].length){
+            int[][] transM = new int[mtx[0].length][mtx.length];
+            int elem = 0;
+            int columnLen = mtx[0].length - 1; //1
+            for (int i = mtx.length - 1; i >= 0 ; i--) {
+                for (int j = mtx[i].length - 1; j >= 0; j--) {
+                    transM[columnLen - j][elem] = mtx[i][j];
+                }
+                elem++;
+            }
+            printTheMatrix(transM);
+        }
+
+        if (mtx.length < mtx[0].length){
+            int[][] transM = new int[mtx[0].length][mtx.length];
+            int rowLen = mtx[0].length - 1; //3
+            int elem = 0;
+            for (int i = mtx.length - 1; i >= 0; i--) {
+                for (int j = mtx[i].length - 1; j >= 0 ; j--) {
+                    transM[rowLen - j][elem] = mtx[i][j];
+                }
+                elem++;
+            }
+            printTheMatrix(transM);
+        }
+        return true;
+    }
 
     }
