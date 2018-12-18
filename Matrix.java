@@ -131,38 +131,42 @@ public class Matrix {
     }
 
 
-    public static int[][] kakaiatoFigneaSDiagonaliami (int [][] mtx){
+    public static boolean kakaiatoFigneaSDiagonaliami (int [][] mtx){
         if (mtx.length != mtx[0].length){
             System.out.println("С данной матрицей невозможно выполнить эту операцию, так как она не квадратная :");
-            return mtx;
+            return false;
         }
 
         mtx = new int[10][10];
 
-//        for (int i = 0; i < mtx.length; i++) {
-//            for (int j = 0; j < mtx[i].length; j++) {
-//                if (i == j){
-//                    mtx[i][j] = 1;
-//                }
-//                if (j == mtx.length - 1 - i){
-//                    mtx[i][j] = 2;
-//                }
-//            }
-//        }
-
-
         for (int i = 0; i < mtx.length; i++) {
-            for (int j = i; j < i + 1; j++) {
-                mtx[i][j] = 1;
+            for (int j = 0; j < mtx[i].length; j++) {
+                if (i == j){
+                    mtx[i][j] = 1;
+                }
+                if (j == mtx.length - 1 - i){
+                    mtx[i][j] = 2;
+                }
+                if ( (i + 1) == (mtx.length - 2 - j) ){
+                    mtx[i][j] = 3;
+                }
             }
         }
 
-        int num = mtx[0].length - 1;
-        for (int i = 0; i < mtx.length; i++) {
-            mtx[i][num - i] = 2;
-            }
+        printTheMatrix(mtx);
 
-       return mtx;
+//        for (int i = 0; i < mtx.length; i++) {
+//            for (int j = i; j < i + 1; j++) {
+//                mtx[i][j] = 1;
+//            }
+//        }
+//
+//        int num = mtx[0].length - 1;
+//        for (int i = 0; i < mtx.length; i++) {
+//            mtx[i][num - i] = 2;
+//            }
+
+       return true;
     }
 
     public static boolean transposeMatrixByMainDiogonal (int[][] mtx){

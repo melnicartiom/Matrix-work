@@ -28,18 +28,18 @@ public class Main {
 //        Matrix.printTheMatrix(Matrix.multiplyMatrix(mass1,mass2));
 
 
-        int[][] mass1 = new int[][] {
-                {3,5,7,5},
-                {3,4,5,9}
-        };
+        int[][] mass1 = new int[10][10];
         System.out.println("Первоначальная матрица: ");
-        Matrix.printTheMatrix(mass1);
+        Matrix.printTheMatrix(Matrix.fillTheMatrix(mass1));
 
-        System.out.println("Транспонирование по побочной диагонали: ");
-        Matrix.transposeMatrixBySecondaryDiogonal(mass1);
+        System.out.println("Задание с диагоналями: ");
+        Matrix.kakaiatoFigneaSDiagonaliami(mass1);
 
-//        System.out.println("Единицы по главной диагонали: ");
-//        Matrix.printTheMatrix(Matrix.kakaiatoFigneaSDiagonaliami(mass1));
+//        System.out.println("Транспонирование по побочной диагонали: ");
+//        Matrix.transposeMatrixBySecondaryDiogonal(mass1);
+
+
+
 
 //        System.out.println("Exponential matrix :");
 //        Matrix.printTheMatrix(Matrix.exponentialMatrix(mass1, 4));
