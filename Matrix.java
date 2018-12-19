@@ -212,7 +212,6 @@ public class Matrix {
         return true;
     }
 
-    //сделать транспонирование по побочной диагонали
     public static boolean transposeMatrixBySecondaryDiogonal (int [][] mtx) {
 
         if (mtx.length == mtx[0].length) {
